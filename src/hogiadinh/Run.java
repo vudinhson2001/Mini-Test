@@ -28,7 +28,7 @@ public class Run {
         town1.add(hoGiaDinh2);
         town1.display();
         System.out.println("Ho Gia Dinh Co Nhieu Thanh Vien Nhat La : ");
-        town1.MaxNumber();
+        town1.findMaxNumber();
         System.out.println("--------------------");
         hoGiaDinh1.edit("Son10",new Person("Son11",33,"Trom Cho","25458585"));
         hoGiaDinh1.display();

@@ -30,7 +30,7 @@ public class Town {
         }
         System.out.println("----------------");
     }
-    public void MaxNumber(){
+    public void findMaxNumber(){
         int max = TownList.get(0).getNumberPeople();
         for(int i=0;i<TownList.size();i++){
             if(TownList.get(i).getNumberPeople()>max){

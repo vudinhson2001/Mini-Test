@@ -5,16 +5,16 @@ import java.util.ArrayList;
 public class Family {
     private ArrayList<Person>giaDinh;
     private String Address;
-    private int NumberPeople;
+    private int numberPeople;
 
     public Family() {
         this.giaDinh=new ArrayList<>();
     }
 
-    public Family( String address, int numberPeople) {
+    public Family( String address, int numberPeople1) {
         this.giaDinh=new ArrayList<>();
         Address = address;
-        NumberPeople = numberPeople;
+        this.numberPeople = numberPeople1;
     }
 
     public ArrayList<Person> getGiaDinh() {
@@ -34,16 +34,16 @@ public class Family {
     }
 
     public int getNumberPeople() {
-        return NumberPeople;
+        return numberPeople;
     }
 
     public void setNumberPeople(int numberPeople) {
-        NumberPeople = numberPeople;
+        this.numberPeople = numberPeople;
     }
     public int add(Person nguoi){
         this.giaDinh.add(nguoi);
-        NumberPeople++;
-        return NumberPeople;
+        numberPeople++;
+        return numberPeople;
     }
     public void remove( String name){
         for (int i = 0; i < giaDinh.size();i++)
@@ -103,7 +103,7 @@ public class Family {
         return "Family{" +
                 "giaDinh=" + giaDinh +
                 ", Address='" + Address + '\'' +
-                ", NumberPeople=" + NumberPeople +
+                ", NumberPeople=" + numberPeople +
                 '}';
     }
 }
