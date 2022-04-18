@@ -53,11 +53,49 @@ public class Family {
             }
 
     }
+    public int search(String name){
+        for(int i=0;i<giaDinh.size();i++){
+            if(giaDinh.get(i).getName().equals(name)){
+                return i ;
+            }
+        }
+        return -1;
+    }
+    public void edit(String name, Person person){
+        giaDinh.set(search(name), person);
+    }
     public void display(){
         for(int i=0;i<giaDinh.size();i++){
             System.out.println(this.giaDinh.get(i).toString());
         }
         System.out.println("Dia Chi "+Address +", So Thanh Vien "+ getNumberPeople());
+    }
+    public Person Max(){
+        int max=giaDinh.get(0).getAge();
+        for(int i=0;i<giaDinh.size();i++){
+            if(giaDinh.get(i).getAge()>max){
+                max=giaDinh.get(i).getAge();
+
+            }
+        }
+        return giaDinh.get(search(max));
+    }
+    public Person Min(){
+        int min=giaDinh.get(0).getAge();
+        for (int i = 0; i <giaDinh.size() ; i++) {
+            if(giaDinh.get(i).getAge()<min){
+                min=giaDinh.get(i).getAge();
+            }
+        }
+        return giaDinh.get(search(min));
+    }
+    public int search(int age){
+        for(int i=0;i<giaDinh.size();i++){
+            if(giaDinh.get(i).getAge()==age){
+                return i ;
+            }
+        }
+        return -1;
     }
 
     @Override

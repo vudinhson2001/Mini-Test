@@ -26,9 +26,18 @@ public class Town {
 
     public void display() {
         for (int i = 0; i < TownList.size(); i++) {
-            System.out.println(this.TownList.get(i).toString());
+            System.out.println(this.TownList.get(i).toString()+"\n");
         }
         System.out.println("----------------");
+    }
+    public void MaxNumber(){
+        int max = TownList.get(0).getNumberPeople();
+        for(int i=0;i<TownList.size();i++){
+            if(TownList.get(i).getNumberPeople()>max){
+                max=TownList.get(i).getNumberPeople();
+            }
+        }
+        System.out.println(max);
     }
 }
 

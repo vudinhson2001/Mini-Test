@@ -55,6 +55,6 @@ public class Person {
                 ", age = " + age +
                 ", job = '" + job + '\'' +
                 ", cmnd = '" + cmnd + '\'' +
-                '}';
+                '}'+"\n";
     }
 }
