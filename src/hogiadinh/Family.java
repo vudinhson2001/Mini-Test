@@ -2,35 +2,38 @@ package hogiadinh;
 
 import java.util.ArrayList;
 
-public class Family {
-    private ArrayList<Person>giaDinh;
-    private String Address;
+public class Family  implements Comparable<Family>{
+    private ArrayList<Person> familyList;
+    private String address;
     private int numberPeople;
 
     public Family() {
-        this.giaDinh=new ArrayList<>();
+        this.familyList =new ArrayList<>();
     }
 
     public Family( String address, int numberPeople1) {
-        this.giaDinh=new ArrayList<>();
-        Address = address;
+        this.familyList =new ArrayList<>();
+        this.address = address;
         this.numberPeople = numberPeople1;
     }
 
+    public Family(String nhapId, int nhapTuoi, String nhapTen, String nhapjob) {
+    }
+
     public ArrayList<Person> getGiaDinh() {
-        return giaDinh;
+        return familyList;
     }
 
     public void setGiaDinh(ArrayList<Person> giaDinh) {
-        this.giaDinh = giaDinh;
+        this.familyList = giaDinh;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 
     public int getNumberPeople() {
@@ -41,69 +44,64 @@ public class Family {
         this.numberPeople = numberPeople;
     }
     public int add(Person nguoi){
-        this.giaDinh.add(nguoi);
+        this.familyList.add(nguoi);
         numberPeople++;
         return numberPeople;
     }
     public void remove( String name){
-        for (int i = 0; i < giaDinh.size();i++)
-            if(giaDinh.get(i).getName().equals(name)){
-                giaDinh.remove(giaDinh.get(i));
+        for (int i = 0; i < familyList.size(); i++)
+            if(familyList.get(i).getName().equals(name)){
+                familyList.remove(familyList.get(i));
                 break;
             }
 
     }
     public int search(String name){
-        for(int i=0;i<giaDinh.size();i++){
-            if(giaDinh.get(i).getName().equals(name)){
+        for(int i = 0; i< familyList.size(); i++){
+            if(familyList.get(i).getName().equals(name)){
                 return i ;
             }
         }
         return -1;
     }
     public void edit(String name, Person person){
-        giaDinh.set(search(name), person);
+        familyList.set(search(name), person);
     }
     public void display(){
-        for(int i=0;i<giaDinh.size();i++){
-            System.out.println(this.giaDinh.get(i).toString());
+        for(int i = 0; i< familyList.size(); i++){
+            System.out.println(this.familyList.get(i).toString());
         }
-        System.out.println("Dia Chi "+Address +", So Thanh Vien "+ getNumberPeople());
+        System.out.println("Dia Chi "+ address +", So Thanh Vien "+ getNumberPeople());
     }
-    public Person Max(){
-        int max=giaDinh.get(0).getAge();
-        for(int i=0;i<giaDinh.size();i++){
-            if(giaDinh.get(i).getAge()>max){
-                max=giaDinh.get(i).getAge();
+    public Person findMaxAge(){
+        int max= familyList.get(0).getAge();
+        for(int i = 0; i< familyList.size(); i++){
+            if(familyList.get(i).getAge()>max){
+                max= familyList.get(i).getAge();
 
             }
         }
-        return giaDinh.get(search(max));
+        return familyList.get(search(max));
     }
-    public Person Min(){
-        int min=giaDinh.get(0).getAge();
-        for (int i = 0; i <giaDinh.size() ; i++) {
-            if(giaDinh.get(i).getAge()<min){
-                min=giaDinh.get(i).getAge();
+    public Person findMinAge(){
+        int min= familyList.get(0).getAge();
+        for (int i = 0; i < familyList.size() ; i++) {
+            if(familyList.get(i).getAge()<min){
+                min= familyList.get(i).getAge();
             }
         }
-        return giaDinh.get(search(min));
+        return familyList.get(search(min));
     }
     public int search(int age){
-        for(int i=0;i<giaDinh.size();i++){
-            if(giaDinh.get(i).getAge()==age){
+        for(int i = 0; i< familyList.size(); i++){
+            if(familyList.get(i).getAge()==age){
                 return i ;
             }
         }
         return -1;
     }
-
     @Override
-    public String toString() {
-        return "Family{" +
-                "giaDinh=" + giaDinh +
-                ", Address='" + Address + '\'' +
-                ", NumberPeople=" + numberPeople +
-                '}';
+    public int compareTo(Family o) {
+        return this.getNumberPeople()-o.getNumberPeople();
     }
 }

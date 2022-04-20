@@ -50,11 +50,11 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Nguoi{" +
-                "name = '" + name + '\'' +
-                ", age = " + age +
-                ", job = '" + job + '\'' +
-                ", cmnd = '" + cmnd + '\'' +
-                '}'+"\n";
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", job='" + job + '\'' +
+                ", cmnd='" + cmnd + '\'' +
+                '}';
     }
 }

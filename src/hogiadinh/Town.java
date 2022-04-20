@@ -1,43 +1,48 @@
 package hogiadinh;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Town {
-    ArrayList<Family> TownList = new ArrayList<>();
+    ArrayList<Family> townList = new ArrayList<>();
 
     public Town(ArrayList<Family> townList) {
-        TownList = townList;
+        this.townList = townList;
     }
 
     public Town() {
     }
 
     public void add(Family family) {
-        TownList.add(family);
+        townList.add(family);
     }
     public void remove( String name){
-        for (int i = 0; i < TownList.size();i++)
-            if(TownList.get(i).getAddress().equals(name)){
-                TownList.remove(TownList.get(i));
+        for (int i = 0; i < townList.size(); i++)
+            if(townList.get(i).getAddress().equals(name)){
+                townList.remove(townList.get(i));
                 break;
             }
 
     }
 
     public void display() {
-        for (int i = 0; i < TownList.size(); i++) {
-            System.out.println(this.TownList.get(i).toString()+"\n");
+        for (int i = 0; i < townList.size(); i++) {
+            System.out.println(this.townList.get(i).toString()+"\n");
         }
         System.out.println("----------------");
     }
     public void findMaxNumber(){
-        int max = TownList.get(0).getNumberPeople();
-        for(int i=0;i<TownList.size();i++){
-            if(TownList.get(i).getNumberPeople()>max){
-                max=TownList.get(i).getNumberPeople();
+        int max = townList.get(0).getNumberPeople();
+        for(int i = 0; i< townList.size(); i++){
+            if(townList.get(i).getNumberPeople()>max){
+                max= townList.get(i).getNumberPeople();
             }
         }
         System.out.println(max);
     }
+    public void sortByMembers(){
+        Collections.sort(townList);
+    }
+
 }
 
